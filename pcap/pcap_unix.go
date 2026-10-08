@@ -108,10 +108,10 @@ int pcap_tstamp_type_name_to_val(const char* t) {
 #ifdef __APPLE__
 #define gopacket_time_secs_t __darwin_time_t
 #define gopacket_time_usecs_t __darwin_suseconds_t
-#elif __ANDROID__
+#elif defined(__ANDROID__)
 #define gopacket_time_secs_t __kernel_time_t
 #define gopacket_time_usecs_t __kernel_suseconds_t
-#elif __GLIBC__
+#elif defined(__GLIBC__)
 #define gopacket_time_secs_t __time_t
 #define gopacket_time_usecs_t __suseconds_t
 #else  // Some form of linux/bsd/etc...
